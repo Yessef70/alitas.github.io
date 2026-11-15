@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alitas Huerfanitas</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --negro:#0d0d0d; --carbon:#1a1a1a; --rojo:#c1121f; --rojo2:#8f0d17; --dorado:#e3b04b; --salmon:#d9695a; --texto:#f3ede4; --gris:#a89f93; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Poppins', Arial, sans-serif; background:var(--negro); color:var(--texto); padding-bottom:100px; }
+
+  .hero { text-align:center; padding:36px 20px 56px; background:radial-gradient(circle at 50% 0%, #2a2a2a 0%, var(--negro) 70%); }
+  .logo { width:190px; height:190px; border-radius:50%; object-fit:cover; border:4px solid var(--dorado); box-shadow:0 8px 28px rgba(227,176,75,.25); }
+  .hero h1 { font-family:'Playfair Display', serif; font-size:1.9rem; margin-top:16px; color:var(--dorado); }
+  .hero p { margin-top:6px; color:var(--gris); font-style:italic; }
+  .envio { display:inline-block; margin-top:16px; background:linear-gradient(135deg,var(--rojo),var(--rojo2)); color:#fff; padding:9px 20px; border-radius:30px; font-weight:600; font-size:.9rem; box-shadow:0 4px 14px rgba(193,18,31,.45); }
+
+  .info { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; padding:0 16px 14px; font-size:.82rem; }
+  .info span { background:var(--carbon); border:1px solid #333; padding:6px 12px; border-radius:20px; color:var(--gris); }
+
+  nav { position:sticky; top:0; z-index:10; background:rgba(13,13,13,.95); display:flex; gap:8px; overflow-x:auto; padding:10px 12px; border-bottom:1px solid #2a2a2a; }
+  nav a { flex:0 0 auto; text-decoration:none; color:var(--dorado); border:1.5px solid var(--dorado); padding:7px 16px; border-radius:20px; font-size:.85rem; font-weight:600; }
+
+  main { max-width:640px; margin:0 auto; padding:8px 14px; }
+  h2 { font-family:'Playfair Display', serif; color:var(--dorado); font-size:1.5rem; margin:30px 0 12px; scroll-margin-top:70px; }
+  h2::after { content:""; display:block; width:50px; height:3px; background:var(--rojo); margin-top:6px; border-radius:2px; }
+
+  .orden { display:flex; justify-content:space-between; align-items:center; background:var(--carbon); border:1px solid #2e2e2e; border-radius:14px; padding:16px; margin-bottom:10px; }
+  .orden span { font-weight:500; letter-spacing:.5px; }
+  .orden b { font-size:1.25rem; color:var(--dorado); }
+
+  /* Contenedor de foto: si no existe la imagen, se ve el emoji */
+  .foto { position:relative; width:100%; aspect-ratio:1 / 1; border-radius:16px; margin:8px 0; border:2px solid #2e2e2e; overflow:hidden;
+          display:flex; align-items:center; justify-content:center; font-size:4rem; background:linear-gradient(135deg,#2a2a2a,#151515); }
+  .foto img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+
+  .caja { background:var(--carbon); border:1px solid #2e2e2e; border-radius:14px; padding:14px 16px; margin-bottom:10px; }
+  .caja h3 { font-size:.8rem; letter-spacing:2px; text-transform:uppercase; color:var(--salmon); margin-bottom:8px; }
+  .caja li { list-style:none; padding:5px 0; font-size:.95rem; }
+  .caja li::before { content:"◇ "; color:var(--dorado); }
+  .nota { text-align:center; color:var(--salmon); font-size:.85rem; letter-spacing:2px; text-transform:uppercase; margin:10px 0; }
+
+  .happy { background:linear-gradient(145deg, #2a0a0d, var(--carbon)); border:2px solid var(--dorado); border-radius:18px; padding:18px; }
+  .happy .top { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; }
+  .happy .top h3 { font-family:'Playfair Display', serif; font-size:1.3rem; color:var(--dorado); }
+  .happy .top b { font-size:1.6rem; color:#fff; }
+  .happy li { list-style:none; padding:5px 0; font-size:.95rem; }
+  .happy li::before { content:"◇ "; color:var(--dorado); }
+
+  footer { text-align:center; font-size:.75rem; color:var(--gris); padding:28px 16px; }
+  .wa { position:fixed; bottom:16px; left:14px; background:#25d366; color:#fff; text-decoration:none; font-weight:600; font-size:.9rem; padding:12px 20px; border-radius:40px; box-shadow:0 6px 16px rgba(0,0,0,.6); white-space:nowrap; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <!-- ============================================================
+       FOTO 1: LOGO
+       Archivo:  fotos/logo.jpg
+       Para cambiarlo: reemplaza el archivo dentro de la carpeta "fotos"
+       (con el mismo nombre) o cambia el nombre en src="..." aquí abajo.
+       ============================================================ -->
+  <img class="logo" src="fotos/logo.jpg" alt="Alitas Huerfanitas">
+
+  <h1 id="nombre"></h1>
+  <p id="eslogan"></p>
+  <span class="envio">🛵 Servicio a domicilio GRATIS</span>
+</header>
+
+<div class="info" id="info"></div>
+<nav>
+  <a href="#alitas">🍗 Alitas</a>
+  <a href="#sabores">🔥 Sabores</a>
+  <a href="#happy">🎉 Happy Box</a>
+</nav>
+
+<main>
+
+  <!-- ===================== SECCIÓN: ALITAS ===================== -->
+  <h2 id="alitas">Alitas</h2>
+
+  <!-- PRECIOS: para cambiar un precio, edita el número dentro de <b>$...</b> -->
+  <div class="orden"><span>ORDEN DE 8 PZAS</span><b>$130</b></div>
+  <div class="orden"><span>ORDEN DE 12 PZAS</span><b>$185</b></div>
+  <div class="orden"><span>ORDEN DE BONELES</span><b>$130</b></div>
+
+  <!-- ============================================================
+       FOTO 2: ALITAS
+       Archivo:  fotos/alitas.jpg
+       ============================================================ -->
+  <div class="foto">🍗<img src="fotos/alitas.jpg" alt="Alitas" onerror="this.remove()"></div>
+
+  <!-- ============================================================
+       FOTO 3: BONELES
+       Archivo:  fotos/boneles.jpg
+       (Mientras no la pongas, se ve el emoji 🍤)
+       ============================================================ -->
+  <div class="foto">🍤<img src="fotos/boneles.jpg" alt="Boneles" onerror="this.remove()"></div>
+
+  <div class="caja">
+    <h3>Todos incluyen</h3>
+    <ul><li>Papitas fritas</li><li>Verduras</li><li>Aderezos</li></ul>
+  </div>
+
+  <!-- ===================== SECCIÓN: SABORES ===================== -->
+  <h2 id="sabores">Sabores</h2>
+  <p class="nota">Combina nuestros sabores</p>
+
+  <!-- Para agregar un sabor: copia una línea <li>...</li> y cambia el nombre -->
+  <div class="caja">
+    <h3>Sabores dulces</h3>
+    <ul>
+      <li>BBQ</li>
+      <li>Tamarindo</li>
+    </ul>
+  </div>
+  <div class="caja">
+    <h3>Sabores picosos</h3>
+    <ul>
+      <li>Buffalo</li>
+      <li>Mango habanero</li>
+    </ul>
+  </div>
+
+  <!-- ===================== SECCIÓN: HAPPY BOX ===================== -->
+  <h2 id="happy">Paquetes</h2>
+
+  <!-- ============================================================
+       FOTO 4: HAPPY BOX
+       Archivo:  fotos/happybox.jpg
+       ============================================================ -->
+  <div class="foto">🎉<img src="fotos/happybox.jpg" alt="Happy Box 2" onerror="this.remove()"></div>
+
+  <div class="happy">
+    <div class="top"><h3>Happy Box 2</h3><b>$200</b></div>
+    <p style="color:var(--gris);font-size:.85rem;margin-bottom:6px">INCLUYE:</p>
+    <ul>
+      <li>6 pzas de alitas (sabor a elegir)</li>
+      <li>6 aros de cebolla</li>
+      <li>4 dedos de queso</li>
+      <li>Verduras</li>
+      <li>Aderezos</li>
+      <li>Papitas fritas</li>
+    </ul>
+  </div>
+</main>
+
+<footer id="pie"></footer>
+<a class="wa" id="wa" href="#">💬 Pedir por WhatsApp</a>
+
+<script>
+/* ============================================================
+   DATOS DEL NEGOCIO: cambia aquí tu WhatsApp, horario y dirección
+   ============================================================ */
+const NEGOCIO = {
+  nombre: "Alitas Huerfanitas",
+  eslogan: "Porque su sabor, no tiene madre",
+  horario: "",                       // Ejemplo: "Mar a Dom · 5:00 PM a 11:00 PM"  (vacío "" = no se muestra)
+  direccion: "Panabá, Yucatán",      // Pon tu calle y colonia si quieres
+  whatsapp: "529999999999"           // 52 + tu número de 10 dígitos, sin espacios
+};
+
+/* Desde aquí hacia abajo no cambies nada */
+document.getElementById('nombre').textContent = NEGOCIO.nombre;
+document.getElementById('eslogan').textContent = NEGOCIO.eslogan;
+document.getElementById('pie').textContent = NEGOCIO.nombre + " · Menú digital";
+let info = "";
+if (NEGOCIO.horario) info += `<span>🕕 ${NEGOCIO.horario}</span>`;
+if (NEGOCIO.direccion) info += `<span>📍 ${NEGOCIO.direccion}</span>`;
+document.getElementById('info').innerHTML = info;
+document.getElementById('wa').href = "https://wa.me/" + NEGOCIO.whatsapp + "?text=" + encodeURIComponent("Hola, quiero hacer un pedido de alitas");
+</script>
+</body>
+</html>
